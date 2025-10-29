@@ -330,9 +330,13 @@
   </main>
 
   <footer>
-    <div class="container">
-      <small>© <span id="year"></span> Nguyễn Kim • Karim Noui • Leadership Profile • </small>
-    </div>
+  <div class="container">
+    <small>
+      © <span id="year"></span> Nguyễn Kim • 
+      <a href="https://vienphan.github.io/karim-profile/" target="_blank" rel="noopener noreferrer">Karim Noui</a> • 
+      <a href="https://vienphan.github.io/karim-profile/" target="_blank" rel="noopener noreferrer">Leadership Profile</a> •
+    </small>
+  </div>
   </footer>
 
   <script>
