@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,13 +10,13 @@
   <meta property="og:type" content="website" />
   <style>
     :root{
-      --bg:#ffffff;        /* page background (white major tone) */
-      --fg:#000000;        /* primary text (black) */
-      --muted:#444444;     /* secondary text */
-      --brand:#e11d48;     /* NK red accent (minor tone) */
-      --card:#ffffff;      /* card background (white) */
-      --line:#e5e5e5;      /* subtle borders */
-      --pill:#f8f8f8;      /* pill background */
+      --bg:#ffffff;
+      --fg:#000000;
+      --muted:#444444;
+      --brand:#e11d48;
+      --card:#ffffff;
+      --line:#e5e5e5;
+      --pill:#f8f8f8;
       --shadow:0 4px 14px rgba(0,0,0,.1);
     }
     html,body{
@@ -27,7 +27,7 @@
       color:var(--fg);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
     }
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
     .container{max-width:1080px;margin:0 auto;padding:0 20px}
 
     /* Header / Hero */
@@ -40,8 +40,7 @@
       background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.95)),url('hero.jpg') center/cover no-repeat;
     }
     header .overlay{
-      position:absolute;
-      inset:0;
+      position:absolute;inset:0;
       background:radial-gradient(60% 60% at 30% 30%,rgba(225,29,72,.25),transparent 60%);
     }
     .hero{position:relative;z-index:2;display:grid;gap:16px;text-align:center;padding:56px 0}
@@ -56,19 +55,13 @@
     .subtitle{font-size:clamp(14px,2.4vw,18px);color:var(--muted)}
     .cta{display:flex;gap:12px;justify-content:center;margin-top:10px;flex-wrap:wrap}
     .btn{
-      background:var(--brand);
-      color:#fff;
-      border:none;
-      border-radius:12px;
-      padding:12px 18px;
-      font-weight:700;
-      box-shadow:var(--shadow);
-      cursor:pointer
+      background:var(--brand);color:#fff;border:none;border-radius:12px;
+      padding:12px 18px;font-weight:700;box-shadow:var(--shadow);cursor:pointer;
+      transition:all .3s ease;
     }
+    .btn:hover{opacity:.9;transform:translateY(-2px)}
     .btn.alt{
-      background:transparent;
-      border:1px solid var(--brand);
-      color:var(--brand)
+      background:transparent;border:1px solid var(--brand);color:var(--brand)
     }
 
     /* Section */
@@ -81,52 +74,56 @@
     @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     @media(min-width:980px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
     .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:22px;
-      box-shadow:var(--shadow)
+      background:var(--card);border:1px solid var(--line);
+      border-radius:18px;padding:22px;box-shadow:var(--shadow)
     }
     .card h3{margin:0 0 10px;font-size:18px}
     .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
     .pill{
-      background:var(--pill);
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:12px;
-      color:var(--muted)
+      background:var(--pill);border:1px solid var(--line);
+      border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)
     }
 
     /* KPI band */
     .kpis{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
     @media(min-width:820px){.kpis{grid-template-columns:repeat(4,1fr)}}
     .kpi{
-      background:var(--card);
-      border:1px solid var(--line);
-      padding:18px;
-      border-radius:16px;
-      text-align:center
+      background:var(--card);border:1px solid var(--line);
+      padding:18px;border-radius:16px;text-align:center
     }
     .kpi .num{font-size:28px;font-weight:800;color:var(--brand)}
     .kpi .lbl{font-size:12px;color:var(--muted)}
 
     /* Quote */
     blockquote{
-      margin:0;
-      padding:18px 22px;
-      border-left:4px solid var(--brand);
-      background:var(--pill);
-      color:var(--muted);
-      border-radius:8px
+      margin:0;padding:18px 22px;border-left:4px solid var(--brand);
+      background:var(--pill);color:var(--muted);border-radius:8px
     }
 
     /* Footer */
     footer{
-      padding:36px 0;
-      color:var(--muted);
-      text-align:center;
-      border-top:1px solid var(--line)
+      padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)
+    }
+
+    /* ---------- MOBILE OPTIMIZATION ---------- */
+    @media(max-width:720px){
+      body{font-size:15px;line-height:1.5}
+      .container{padding:0 16px}
+      header{min-height:60vh;background-position:center}
+      .hero{padding:40px 0;gap:12px}
+      .badge{font-size:11px;padding:6px 10px}
+      .title{font-size:clamp(26px,7vw,42px)}
+      .subtitle{font-size:15px;padding:0 10px}
+      .cta{flex-direction:column;align-items:center;gap:10px}
+      .btn{width:90%;max-width:280px;padding:12px;font-size:15px}
+      section{padding:40px 0}
+      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+      .card{padding:18px}
+      .card h3{font-size:17px}
+      .lead{font-size:16px}
+      blockquote{font-size:14px;padding:14px 18px}
+      footer small{font-size:12px;line-height:1.4;display:block;padding:0 8px}
     }
 
     /* Print */
@@ -183,26 +180,11 @@
     <section id="transformation" aria-labelledby="transform-title">
       <h2 id="transform-title">Strategic Transformation 2024–2028</h2>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Rebuilding Profitability</h3>
-          <p>Closed non-performing stores, renovated key locations, optimized assortment and cost structure, and focused resources on front-line impact.</p>
-        </div>
-        <div class="card">
-          <h3>Omnichannel Expansion</h3>
-          <p>Integrated offline & online. Drove Marketplace and Telesales—achieving <em>Top 1 in Shopee Mall (Home Appliances, 2025)</em>.</p>
-        </div>
-        <div class="card">
-          <h3>AI & Data-Driven Management</h3>
-          <p>Real-time control via Power BI and R&amp;D projects in AI to elevate customer experience and supply-chain efficiency.</p>
-        </div>
-        <div class="card">
-          <h3>Operational Excellence</h3>
-          <p>Lean organization, streamlined logistics across three DCs, and disciplined back-office optimization.</p>
-        </div>
-        <div class="card">
-          <h3>Partnership Synergy</h3>
-          <p>360° collaborations with global brands and exploration of M&amp;A synergies to build national scale and efficiency.</p>
-        </div>
+        <div class="card"><h3>Rebuilding Profitability</h3><p>Closed non-performing stores, renovated key locations, optimized assortment and cost structure, and focused resources on front-line impact.</p></div>
+        <div class="card"><h3>Omnichannel Expansion</h3><p>Integrated offline & online. Drove Marketplace and Telesales—achieving <em>Top 1 in Shopee Mall (Home Appliances, 2025)</em>.</p></div>
+        <div class="card"><h3>AI & Data-Driven Management</h3><p>Real-time control via Power BI and R&amp;D projects in AI to elevate customer experience and supply-chain efficiency.</p></div>
+        <div class="card"><h3>Operational Excellence</h3><p>Lean organization, streamlined logistics across three DCs, and disciplined back-office optimization.</p></div>
+        <div class="card"><h3>Partnership Synergy</h3><p>360° collaborations with global brands and exploration of M&amp;A synergies to build national scale and efficiency.</p></div>
       </div>
     </section>
 
@@ -211,37 +193,14 @@
       <h2 id="results-title">Driving Measurable Results</h2>
       <p class="lead">Tangible outcomes of NK’s transformation under Karim’s leadership.</p>
       <div class="kpis" style="margin-top:14px">
-        <div class="kpi">
-          <div class="num">+140%</div>
-          <div class="lbl">EBITDA YoY (to 6.4%)</div>
-        </div>
-        <div class="kpi">
-          <div class="num">+1.1 pts</div>
-          <div class="lbl">Gross Profit Margin</div>
-        </div>
-        <div class="kpi">
-          <div class="num">−23%</div>
-          <div class="lbl">Stock YoY (81-day turn)</div>
-        </div>
-        <div class="kpi">
-          <div class="num">+83%</div>
-          <div class="lbl">Online Sales YoY (18% mix)</div>
-        </div>
+        <div class="kpi"><div class="num">+140%</div><div class="lbl">EBITDA YoY (to 6.4%)</div></div>
+        <div class="kpi"><div class="num">+1.1 pts</div><div class="lbl">Gross Profit Margin</div></div>
+        <div class="kpi"><div class="num">−23%</div><div class="lbl">Stock YoY (81-day turn)</div></div>
+        <div class="kpi"><div class="num">+83%</div><div class="lbl">Online Sales YoY (18% mix)</div></div>
       </div>
       <div class="grid cols-2" style="margin-top:16px">
-        <div class="card">
-          <h3>Customer Experience</h3>
-          <ul>
-            <li>Premium service & curated design for A–B segments</li>
-            <li>Affordable offers & flexible payment for C–D</li>
-            <li>Livestream & KOC content to engage younger audiences</li>
-            <li>Trusted after-sales & responsive call center</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Healthy Merchandise Mix</h3>
-          <p>CE | DIG = <strong>89 | 11</strong>, supporting margin uplift and sustainable growth.</p>
-        </div>
+        <div class="card"><h3>Customer Experience</h3><ul><li>Premium service & curated design for A–B segments</li><li>Affordable offers & flexible payment for C–D</li><li>Livestream & KOC content to engage younger audiences</li><li>Trusted after-sales & responsive call center</li></ul></div>
+        <div class="card"><h3>Healthy Merchandise Mix</h3><p>CE | DIG = <strong>89 | 11</strong>, supporting margin uplift and sustainable growth.</p></div>
       </div>
     </section>
 
@@ -249,27 +208,10 @@
     <section id="leadership" aria-labelledby="leader-title">
       <h2 id="leader-title">Leadership & Philosophy</h2>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Leadership through Synergy</h3>
-          <p>“1 + 1 &gt; 2” when people, brands, and ideas work in harmony. Teams think analytically and act creatively—balancing discipline with empathy.</p>
-          <div class="meta">
-            <span class="pill">Visionary & Pragmatic</span>
-            <span class="pill">Empowers Talent</span>
-            <span class="pill">Innovation Mindset</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Execution Principles</h3>
-          <ul>
-            <li>Clarity of strategy, rigor in finance</li>
-            <li>Operational excellence & continuous improvement</li>
-            <li>Partner ecosystem built on long-term trust</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Leadership through Synergy</h3><p>“1 + 1 &gt; 2” when people, brands, and ideas work in harmony. Teams think analytically and act creatively—balancing discipline with empathy.</p><div class="meta"><span class="pill">Visionary & Pragmatic</span><span class="pill">Empowers Talent</span><span class="pill">Innovation Mindset</span></div></div>
+        <div class="card"><h3>Execution Principles</h3><ul><li>Clarity of strategy, rigor in finance</li><li>Operational excellence & continuous improvement</li><li>Partner ecosystem built on long-term trust</li></ul></div>
       </div>
-      <blockquote>
-        “Retail leadership is not only about selling products—it’s about building trust, inspiring teams, and bringing innovation to every household.” — <strong>Karim Noui</strong>
-      </blockquote>
+      <blockquote>“Retail leadership is not only about selling products—it’s about building trust, inspiring teams, and bringing innovation to every household.” — <strong>Karim Noui</strong></blockquote>
     </section>
 
     <!-- Outlook -->
