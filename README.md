@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -331,7 +331,7 @@
 
   <footer>
     <div class="container">
-      <small>© <span id="year"></span> Nguyễn Kim • Leadership Profile • Designed for single-file hosting (GitHub Pages, Netlify, Vercel). Replace <code>hero.jpg</code> with your banner image.</small>
+      <small>© <span id="year"></span> Nguyễn Kim • Karim Noui • Leadership Profile • </small>
     </div>
   </footer>
 
