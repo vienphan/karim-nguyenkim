@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,6 +19,7 @@
       --pill:#f8f8f8;
       --shadow:0 4px 14px rgba(0,0,0,.1);
     }
+
     html,body{
       margin:0;
       height:100%;
@@ -26,9 +27,18 @@
       background:var(--bg);
       color:var(--fg);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      max-width:100%;
+      overflow-x:hidden; /* ✅ chặn tràn ngang */
     }
+
     a{color:inherit;text-decoration:none}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    .container{
+      max-width:1080px;
+      margin:0 auto;
+      padding:0 20px;
+      box-sizing:border-box;
+      overflow-x:hidden; /* ✅ an toàn cho grid */
+    }
 
     /* Header / Hero */
     header{
@@ -38,71 +48,181 @@
       place-items:center;
       overflow:hidden;
       background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.95)),url('hero.jpg') center/cover no-repeat;
+      width:100%;
+      box-sizing:border-box;
     }
+
     header .overlay{
       position:absolute;inset:0;
       background:radial-gradient(60% 60% at 30% 30%,rgba(225,29,72,.25),transparent 60%);
     }
-    .hero{position:relative;z-index:2;display:grid;gap:16px;text-align:center;padding:56px 0}
+
+    .hero{
+      position:relative;
+      z-index:2;
+      display:grid;
+      gap:16px;
+      text-align:center;
+      padding:56px 0;
+      width:100%;
+      box-sizing:border-box;
+    }
+
     .badge{
-      display:inline-flex;align-items:center;gap:8px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
       background:var(--pill);
       border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;
-      font-size:12px;color:var(--muted)
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      flex-shrink:0;
     }
-    .title{font-weight:800;line-height:1.05;letter-spacing:.3px;font-size:clamp(28px,5vw,56px)}
-    .subtitle{font-size:clamp(14px,2.4vw,18px);color:var(--muted)}
-    .cta{display:flex;gap:12px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+
+    .title{
+      font-weight:800;
+      line-height:1.05;
+      letter-spacing:.3px;
+      font-size:clamp(28px,5vw,56px);
+    }
+
+    .subtitle{
+      font-size:clamp(14px,2.4vw,18px);
+      color:var(--muted);
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:10px;
+      flex-wrap:wrap;
+      width:100%;
+      max-width:100%;
+      box-sizing:border-box;
+      overflow-x:hidden;
+    }
+
     .btn{
-      background:var(--brand);color:#fff;border:none;border-radius:12px;
-      padding:12px 18px;font-weight:700;box-shadow:var(--shadow);cursor:pointer;
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      padding:12px 18px;
+      font-weight:700;
+      box-shadow:var(--shadow);
+      cursor:pointer;
       transition:all .3s ease;
+      white-space:nowrap;
     }
+
     .btn:hover{opacity:.9;transform:translateY(-2px)}
     .btn.alt{
-      background:transparent;border:1px solid var(--brand);color:var(--brand)
+      background:transparent;
+      border:1px solid var(--brand);
+      color:var(--brand)
     }
 
     /* Section */
-    section{padding:60px 0;border-top:1px solid var(--line)}
-    section h2{font-size:clamp(22px,4vw,34px);margin:0 0 12px}
-    section p.lead{color:var(--muted);font-size:18px}
+    section{
+      padding:60px 0;
+      border-top:1px solid var(--line);
+      width:100%;
+      box-sizing:border-box;
+      overflow-x:hidden;
+    }
+
+    section h2{
+      font-size:clamp(22px,4vw,34px);
+      margin:0 0 12px;
+    }
+
+    section p.lead{
+      color:var(--muted);
+      font-size:18px;
+    }
 
     /* Grid cards */
-    .grid{display:grid;gap:18px}
+    .grid{
+      display:grid;
+      gap:18px;
+      width:100%;
+      max-width:100%;
+      box-sizing:border-box;
+      overflow-x:hidden;
+    }
+
     @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     @media(min-width:980px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+
     .card{
-      background:var(--card);border:1px solid var(--line);
-      border-radius:18px;padding:22px;box-shadow:var(--shadow)
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      box-sizing:border-box;
+      overflow:hidden;
     }
+
     .card h3{margin:0 0 10px;font-size:18px}
     .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
     .pill{
-      background:var(--pill);border:1px solid var(--line);
-      border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)
+      background:var(--pill);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--muted);
+      flex-shrink:0;
     }
 
     /* KPI band */
-    .kpis{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
-    @media(min-width:820px){.kpis{grid-template-columns:repeat(4,1fr)}}
-    .kpi{
-      background:var(--card);border:1px solid var(--line);
-      padding:18px;border-radius:16px;text-align:center
+    .kpis{
+      display:grid;
+      gap:14px;
+      grid-template-columns:repeat(2,1fr);
+      width:100%;
+      box-sizing:border-box;
+      overflow-x:hidden;
     }
+
+    @media(min-width:820px){.kpis{grid-template-columns:repeat(4,1fr)}}
+
+    .kpi{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:18px;
+      border-radius:16px;
+      text-align:center;
+      box-sizing:border-box;
+    }
+
     .kpi .num{font-size:28px;font-weight:800;color:var(--brand)}
     .kpi .lbl{font-size:12px;color:var(--muted)}
 
     /* Quote */
     blockquote{
-      margin:0;padding:18px 22px;border-left:4px solid var(--brand);
-      background:var(--pill);color:var(--muted);border-radius:8px
+      margin:0;
+      padding:18px 22px;
+      border-left:4px solid var(--brand);
+      background:var(--pill);
+      color:var(--muted);
+      border-radius:8px;
+      box-sizing:border-box;
     }
 
     /* Footer */
     footer{
-      padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)
+      padding:36px 0;
+      color:var(--muted);
+      text-align:center;
+      border-top:1px solid var(--line);
+      width:100%;
+      box-sizing:border-box;
+      overflow-x:hidden;
     }
 
     /* ---------- MOBILE OPTIMIZATION ---------- */
@@ -132,6 +252,13 @@
       .btn,.cta{display:none}
       section{padding:24px 0}
       .card, .kpi{break-inside:avoid}
+    }
+
+    /* ✅ Fix overflow cho toàn site */
+    img, video {
+      max-width:100%;
+      height:auto;
+      display:block;
     }
   </style>
 </head>
