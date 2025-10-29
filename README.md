@@ -28,16 +28,23 @@
       color:var(--fg);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
       max-width:100%;
-      overflow-x:hidden; /* ✅ chặn tràn ngang */
+      overflow-x:hidden;
+    }
+
+    *{
+      box-sizing:border-box;
+      max-width:100%;
+      overflow-wrap:break-word;
     }
 
     a{color:inherit;text-decoration:none}
+    img, video{max-width:100%;height:auto;display:block;}
+
     .container{
       max-width:1080px;
       margin:0 auto;
       padding:0 20px;
-      box-sizing:border-box;
-      overflow-x:hidden; /* ✅ an toàn cho grid */
+      overflow-x:hidden;
     }
 
     /* Header / Hero */
@@ -49,7 +56,6 @@
       overflow:hidden;
       background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.95)),url('hero.jpg') center/cover no-repeat;
       width:100%;
-      box-sizing:border-box;
     }
 
     header .overlay{
@@ -65,7 +71,6 @@
       text-align:center;
       padding:56px 0;
       width:100%;
-      box-sizing:border-box;
     }
 
     .badge{
@@ -99,10 +104,6 @@
       justify-content:center;
       margin-top:10px;
       flex-wrap:wrap;
-      width:100%;
-      max-width:100%;
-      box-sizing:border-box;
-      overflow-x:hidden;
     }
 
     .btn{
@@ -122,16 +123,14 @@
     .btn.alt{
       background:transparent;
       border:1px solid var(--brand);
-      color:var(--brand)
+      color:var(--brand);
     }
 
     /* Section */
     section{
       padding:60px 0;
       border-top:1px solid var(--line);
-      width:100%;
-      box-sizing:border-box;
-      overflow-x:hidden;
+      overflow:hidden;
     }
 
     section h2{
@@ -149,9 +148,7 @@
       display:grid;
       gap:18px;
       width:100%;
-      max-width:100%;
-      box-sizing:border-box;
-      overflow-x:hidden;
+      overflow:hidden;
     }
 
     @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
@@ -163,12 +160,11 @@
       border-radius:18px;
       padding:22px;
       box-shadow:var(--shadow);
-      box-sizing:border-box;
       overflow:hidden;
     }
 
     .card h3{margin:0 0 10px;font-size:18px}
-    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0;overflow:hidden;}
     .pill{
       background:var(--pill);
       border:1px solid var(--line);
@@ -176,7 +172,6 @@
       padding:6px 10px;
       font-size:12px;
       color:var(--muted);
-      flex-shrink:0;
     }
 
     /* KPI band */
@@ -185,8 +180,7 @@
       gap:14px;
       grid-template-columns:repeat(2,1fr);
       width:100%;
-      box-sizing:border-box;
-      overflow-x:hidden;
+      overflow:hidden;
     }
 
     @media(min-width:820px){.kpis{grid-template-columns:repeat(4,1fr)}}
@@ -197,7 +191,7 @@
       padding:18px;
       border-radius:16px;
       text-align:center;
-      box-sizing:border-box;
+      overflow:hidden;
     }
 
     .kpi .num{font-size:28px;font-weight:800;color:var(--brand)}
@@ -211,7 +205,7 @@
       background:var(--pill);
       color:var(--muted);
       border-radius:8px;
-      box-sizing:border-box;
+      overflow:hidden;
     }
 
     /* Footer */
@@ -221,8 +215,7 @@
       text-align:center;
       border-top:1px solid var(--line);
       width:100%;
-      box-sizing:border-box;
-      overflow-x:hidden;
+      overflow:hidden;
     }
 
     /* ---------- MOBILE OPTIMIZATION ---------- */
@@ -252,13 +245,6 @@
       .btn,.cta{display:none}
       section{padding:24px 0}
       .card, .kpi{break-inside:avoid}
-    }
-
-    /* ✅ Fix overflow cho toàn site */
-    img, video {
-      max-width:100%;
-      height:auto;
-      display:block;
     }
   </style>
 </head>
